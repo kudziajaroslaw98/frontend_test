@@ -1,0 +1,52 @@
+@import "../../shared/variables.scss";
+
+.header {
+  height: 8.75rem;
+  width: 100%;
+  background-color: $bgHeader;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6.25rem;
+    width: 6.25rem;
+    background: $bgHtmlLogo;
+    border-radius: 100%;
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(205, 115, 0, 1) 0%,
+        rgba(254, 158, 35, 1) 100%
+      );
+    }
+
+    &__svg {
+      fill: white;
+      height: 4.75rem;
+      width: 4.75rem;
+      transform: translateY(0.25em);
+    }
+  }
+
+  &__text {
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    line-height: 1.25;
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--thin {
+      font-weight: 200;
+    }
+  }
+}

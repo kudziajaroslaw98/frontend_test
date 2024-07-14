@@ -1,0 +1,21 @@
+<div class="radioButtonList">
+  @for(option of options; track option.label){
+  <div class="radioButtonList__radioButton">
+    <label>
+      <input
+        type="radio"
+        [value]="option.value"
+        [checked]="option.value === selectedValue"
+        (change)="onSelectionChange(option.value)"
+        hidden
+      />
+
+      <span class="radioButtonList__radioButton__label">
+        <span class="radioButtonList__radioButton__checkmark"></span>
+
+        {{ option.label }}
+      </span>
+    </label>
+  </div>
+  }
+</div>

@@ -1,0 +1,188 @@
+@import "../../shared/variables.scss";
+
+.footer {
+  height: 8.75rem;
+  width: 100%;
+  background-color: $bgFooter;
+  border-top: 0.125rem solid black;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &__square {
+    $square: &;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $squareSide;
+    height: $squareSide;
+
+    position: relative;
+    padding-left: 2.625rem;
+
+    cursor: pointer;
+
+    &__text {
+      font-size: 1.75rem;
+      color: $footerUnHover;
+      white-space: pre-line;
+      word-spacing: 6.25rem;
+      font-weight: 400;
+      line-height: 1.25;
+      z-index: 5;
+      transition: color 0.3s ease-in-out;
+    }
+
+    &::after {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      content: "";
+      width: $squareSide;
+      height: $squareSide;
+      border: 0.0625rem solid $footerUnHover;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      #{$square}__text {
+        color: white;
+      }
+
+      &::after {
+        border: 0.0625rem solid $orange;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__company {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: $footerUnHover;
+    position: relative;
+
+    &::before {
+      width: $lineWidth;
+      height: 1px;
+      background-color: $footerUnHover;
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: -3.75rem;
+    }
+
+    &::after {
+      width: $lineWidth;
+      height: 1px;
+      background-color: $footerUnHover;
+      content: "";
+      position: absolute;
+      top: 1rem;
+      right: -3.75rem;
+    }
+  }
+
+  &__button {
+    $button: &;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0.0625rem solid $footerUnHover;
+    border-radius: 0.25rem;
+    width: 16.125rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: border 0.2s ease-in-out;
+    position: relative;
+
+    &__text {
+      font-weight: 600;
+      color: $textGray;
+      font-size: 1.125rem;
+      transition: color 0.2s ease-in-out;
+    }
+
+    &__svg {
+      margin-left: 0.625rem;
+      fill: $textGray;
+      height: 0.875rem;
+      width: 0.875rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:focus {
+      border: 0.0625rem solid white;
+
+      #{$button}__text {
+        color: white;
+      }
+
+      #{$button}__svg {
+        fill: white;
+        transform: rotate(180deg);
+      }
+
+      #{$button}__menu {
+        animation: slideIn 0.3s ease-in-out 0s 1 normal forwards;
+      }
+    }
+
+    &__menu {
+      display: flex;
+      flex-direction: column;
+      width: 16.125rem;
+      height: 5.625rem;
+      background-color: white;
+      border-radius: 0.125rem;
+      -webkit-box-shadow: 0px 0px 1.375rem 0.5rem rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 1.375rem 0.5rem rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 1.375rem 0.5rem rgba(0, 0, 0, 0.75);
+      padding: 0.5rem;
+      position: absolute;
+      bottom: -1rem;
+      transition: all 0.3s ease-in-out;
+      right: 0;
+      content: "";
+      text-decoration: none;
+      list-style: none;
+      z-index: -1;
+
+      &__item {
+        $menuItem: &;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+        color: $footerUnHover;
+        font-size: 1rem;
+        font-weight: 600;
+
+        &__svg {
+          margin-left: 0.625rem;
+          fill: $footerUnHover;
+          height: 0.875rem;
+          width: 0.875rem;
+          transition: all 0.2s ease-in-out;
+          transform: rotate(90deg);
+        }
+
+        &:hover {
+          color: $orange;
+
+          #{$menuItem}__svg {
+            fill: $orange;
+          }
+        }
+      }
+    }
+  }
+}
