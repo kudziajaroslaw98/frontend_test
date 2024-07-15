@@ -1,7 +1,11 @@
 <div class="radioButtonList">
   @for(option of options; track option.label){
   <div class="radioButtonList__radioButton">
-    <label>
+    <label
+      tabindex="0"
+      (click)="onSelectionChange(option.value)"
+      (keyup.enter)="onSelectionChange(option.value)"
+    >
       <input
         type="radio"
         [value]="option.value"

@@ -8,7 +8,7 @@
 
   <div class="main__content">
     <div class="main__content__section">
-      <h4 class="main__content__section__title">BLOK PIERWSZY</h4>
+      <span class="main__content__section__title">BLOK PIERWSZY</span>
 
       <app-radio-button-list
         [options]="radioOptions"
@@ -18,7 +18,7 @@
     </div>
 
     <div class="main__content__section">
-      <h4 class="main__content__section__title">BLOK DRUGI</h4>
+      <span class="main__content__section__title">BLOK DRUGI</span>
 
       <div class="main__content__section__buttons">
         <button (click)="swapArticles()">ZASTĄP</button>
@@ -28,10 +28,10 @@
     </div>
 
     <div class="main__content__section">
-      <h4 class="main__content__section__title">
+      <span class="main__content__section__title">
         BLOK Z DŁUGĄ NAZWĄ KTÓRA SAMA SIĘ PRZYTNIE GDY NIE BĘDZIE WYSTARCZAJĄCO
         MIEJSCA
-      </h4>
+      </span>
 
       @for(article of articles; track article.id) {
       <article class="main__content__section__article">

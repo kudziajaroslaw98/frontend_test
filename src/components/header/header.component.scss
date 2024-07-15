@@ -17,13 +17,10 @@
     width: 6.25rem;
     background: $bgHtmlLogo;
     border-radius: 100%;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      background: linear-gradient(
-        135deg,
-        rgba(205, 115, 0, 1) 0%,
-        rgba(254, 158, 35, 1) 100%
-      );
+      background-color: $orange;
     }
 
     &__svg {
@@ -35,11 +32,11 @@
   }
 
   &__text {
-    font-size: 2.5rem;
     display: flex;
     flex-direction: column;
     text-align: right;
     line-height: 1.25;
+    font-size: 1.5rem;
 
     &--bold {
       font-weight: 700;
@@ -47,6 +44,14 @@
 
     &--thin {
       font-weight: 200;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .header {
+    &__text {
+      font-size: 2.5rem;
     }
   }
 }

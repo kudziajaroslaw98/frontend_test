@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
@@ -31,11 +31,11 @@ interface Article {
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  host: {
-    style: 'display: flex; flex-direction: column; flex: 1;',
-  },
 })
 export class AppComponent {
+  @HostBinding('style') style =
+    'display: flex; flex-direction: column; flex: 1;';
+
   public initialArticle: Article = {
     id: 1,
     text: `Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
@@ -92,9 +92,7 @@ export class AppComponent {
         0
       );
 
-      if (newElement !== null) {
-        this.articles.push(newElement);
-      }
+      this.pushAndSortAsc(this.articles, newElement);
     } else if (this.pickedOption === RadioButtonOptions.SECOND) {
       const newElement = this.getRandomElement(
         [this.loadedArticles[1]],
@@ -102,9 +100,7 @@ export class AppComponent {
         0
       );
 
-      if (newElement !== null) {
-        this.articles.push(newElement);
-      }
+      this.pushAndSortAsc(this.articles, newElement);
     } else {
       const newElement = this.getRandomElement(
         this.loadedArticles,
@@ -112,9 +108,7 @@ export class AppComponent {
         2
       );
 
-      if (newElement !== null) {
-        this.articles.push(newElement);
-      }
+      this.pushAndSortAsc(this.articles, newElement);
     }
   }
 
@@ -123,7 +117,7 @@ export class AppComponent {
     referenceArray: Article[],
     startFrom: number = 2
   ): Article | null {
-    let possibleElements = array
+    const possibleElements = array
       .slice(startFrom)
       .filter((el) => !referenceArray.some((item) => el?.id === item?.id));
     let selectedElement: Article | null = null;
@@ -144,5 +138,12 @@ export class AppComponent {
     );
 
     return selectedElement;
+  }
+
+  private pushAndSortAsc(array: Article[], newElement: Article | null) {
+    if (newElement !== null) {
+      array.push(newElement);
+      array.sort((head, tail) => head.text.localeCompare(tail.text));
+    }
   }
 }

@@ -18,7 +18,12 @@
     </span>
 
     <menu class="footer__button__menu">
-      <li (click)="clearSettings.emit()" class="footer__button__menu__item">
+      <li
+        tabindex="0"
+        (click)="clearSettings.emit()"
+        (keyup.enter)="clearSettings.emit()"
+        class="footer__button__menu__item"
+      >
         <span class="footer__button__menu__item__svg"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -31,7 +36,12 @@
         <span> ZRESETUJ USTAWIENIA </span>
       </li>
 
-      <li (click)="showCredentials.emit()" class="footer__button__menu__item">
+      <li
+        tabindex="0"
+        (click)="showCredentials.emit()"
+        (keyup.enter)="showCredentials.emit()"
+        class="footer__button__menu__item"
+      >
         <span class="footer__button__menu__item__svg"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->

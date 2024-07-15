@@ -60,6 +60,7 @@
   }
 
   &__company {
+    display: none;
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.25;
@@ -116,7 +117,7 @@
       transition: all 0.2s ease-in-out;
     }
 
-    &:focus {
+    &:focus-within {
       border: 0.0625rem solid white;
 
       #{$button}__text {
@@ -175,7 +176,8 @@
           transform: rotate(90deg);
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
           color: $orange;
 
           #{$menuItem}__svg {
@@ -183,6 +185,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .footer {
+    &__company {
+      display: block;
     }
   }
 }

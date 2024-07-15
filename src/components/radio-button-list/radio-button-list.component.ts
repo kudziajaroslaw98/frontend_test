@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+} from '@angular/core';
 
 export interface RadioButtonOption<T> {
   value: T;
@@ -11,11 +17,9 @@ export interface RadioButtonOption<T> {
   imports: [],
   templateUrl: './radio-button-list.component.html',
   styleUrl: './radio-button-list.component.scss',
-  host: {
-    style: 'width:100%;',
-  },
 })
 export class RadioButtonListComponent<T> {
+  @HostBinding('style') style = 'width:100%;';
   @Input() options: RadioButtonOption<T>[] = [];
   @Input() set initialValue(value: T) {
     this.selectedValue = value ?? null;

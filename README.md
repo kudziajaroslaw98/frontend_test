@@ -38,12 +38,14 @@ W katalogu znajdziesz projekt graficzny. Prosimy Ci� o jego poci�cie oraz na
 ✅ CSS IS AWESOME w footerze - po najechaniu myszk� ramka (bez tekstu) powinna wykona� animowany obr�t.
 ✅ Zastosowanie BEM.
 
-- Spe�nianie zasad a11y.
-- Logiczne wykorzystanie jednostek rem, em, vh, vw (w efekcie jak najmniejsze u�ycie jednostki px) - w taki spos�b by w efekcie responsywno�� spe�niona zosta�a jak najmniejsz� ilo�ci� kodu.
-- Mobile first.
-- Doklejaj�c tre�� sprawi� by w ostatnim bloku tre�ci by�y posortowane alfabetycznie.
-  ✅ Przy doklejaniu tre�ci w przypadku niemo�liwo�ci spe�nienia warunku by by�a unikalna wy�wietli� stosowny komunikat (np. alert/dialog/modal).
-  ✅ Button w footerze ("poka�") wysuwaj�cy ramk� bez u�ycia JSa.
+✅ Spe�nianie zasad a11y.
+✅ Logiczne wykorzystanie jednostek rem, em, vh, vw (w efekcie jak najmniejsze u�ycie jednostki px) - w taki spos�b by w efekcie responsywno�� spe�niona zosta�a jak najmniejsz� ilo�ci� kodu.
+
+✅ Mobile first.
+✅ Doklejaj�c tre�� sprawi� by w ostatnim bloku tre�ci by�y posortowane alfabetycznie.
+✅ Przy doklejaniu tre�ci w przypadku niemo�liwo�ci spe�nienia warunku by by�a unikalna wy�wietli� stosowny komunikat (np. alert/dialog/modal).
+✅ Button w footerze ("poka�") wysuwaj�cy ramk� bez u�ycia JSa.
+
 - Rezultat prac wrzuci� do podgl�du na jak�� darmow� platform� (np. netlify/heroku).
 
 ### ZADANIE NA 6 :)
