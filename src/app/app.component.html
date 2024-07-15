@@ -45,6 +45,8 @@
 <app-footer
   (showCredentials)="showCredentials()"
   (clearSettings)="clearSettings()"
+  (openModal)="openModal()"
 ></app-footer>
 
+<app-modal [showModal]="isModalOpen" (closeModal)="closeModal()"></app-modal>
 <router-outlet />

@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
@@ -7,6 +7,8 @@ import {
   RadioButtonOption,
 } from '../components/radio-button-list/radio-button-list.component';
 
+import { ModalComponent } from '../components/modal/modal.component';
+import { LocalStorageService } from '../services/local-storage/local-storage.service';
 import * as loadedArticles from './data.json';
 
 enum RadioButtonOptions {
@@ -15,8 +17,8 @@ enum RadioButtonOptions {
   RANDOM = 'RANDOM',
 }
 
-interface Article {
-  id: number;
+export interface Article {
+  id: string;
   text: string;
 }
 
@@ -28,16 +30,24 @@ interface Article {
     HeaderComponent,
     FooterComponent,
     RadioButtonListComponent,
+    ModalComponent,
   ],
+  providers: [LocalStorageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @HostBinding('style') style =
     'display: flex; flex-direction: column; flex: 1;';
 
+  constructor(public localStorageService: LocalStorageService) {}
+
+  public ngOnInit() {
+    this.localStorageService.initialize(loadedArticles.data as Article[]);
+  }
+
   public initialArticle: Article = {
-    id: 1,
+    id: '47c0c4b2-e0f6-48cd-a8a6-625937893b25',
     text: `Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   };
   public loadedArticles: Article[] = loadedArticles.data as Article[];
@@ -47,6 +57,7 @@ export class AppComponent {
     { value: RadioButtonOptions.SECOND, label: 'Opcja druga' },
     { value: RadioButtonOptions.RANDOM, label: 'Opcja losowa' },
   ];
+  public isModalOpen = false;
 
   public pickedOption: RadioButtonOptions = RadioButtonOptions.FIRST;
 
@@ -64,6 +75,14 @@ export class AppComponent {
 
   public radioSelectionChange(value: RadioButtonOptions) {
     this.pickedOption = value;
+  }
+
+  public openModal() {
+    this.isModalOpen = true;
+  }
+
+  public closeModal() {
+    this.isModalOpen = false;
   }
 
   public swapArticles() {

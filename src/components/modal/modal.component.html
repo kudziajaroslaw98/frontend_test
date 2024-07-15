@@ -1,0 +1,67 @@
+@if(showModal){
+<div class="modal">
+  <div class="modal__dialog">
+    <div class="modal__dialog__header">
+      <button class="modal__dialog__header__close" (click)="closeModal.emit()">
+        X
+      </button>
+    </div>
+
+    <div class="modal__dialog__content">
+      <div class="modal__dialog__content__side">
+        @for(record of lSService.getAll(); track record.id){
+        <div class="modal__dialog__content__record">
+          <span class="modal__dialog__content__record__text">{{
+            record.text
+          }}</span>
+
+          <button
+            class="modal__dialog__content__record__button"
+            (click)="editRecord(record.id)"
+            (keyup.enter)="editRecord(record.id)"
+          >
+            Edytuj
+          </button>
+
+          <button
+            class="modal__dialog__content__record__button"
+            (click)="lSService.delete(record.id)"
+            (keyup.enter)="lSService.delete(record.id)"
+          >
+            Usuń
+          </button>
+        </div>
+        }
+      </div>
+
+      <div class="modal__dialog__content__side">
+        <h2 class="modal__dialog__content__actionType">
+          {{ editId !== null ? "Edytuj Rekord" : "Dodaj Rekord" }}
+        </h2>
+        <form class="modal__dialog__content__form" (ngSubmit)="saveRecord()">
+          <textarea
+            class="modal__dialog__content__form__textarea"
+            [(ngModel)]="newRecord.text"
+            name="text"
+            placeholder="Text"
+            required
+          ></textarea>
+
+          <button class="modal__dialog__content__form__button" type="submit">
+            {{ editId !== null ? "Zapisz" : "Dodaj" }}
+          </button>
+
+          @if(editId !== null){<button
+            (click)="clearEdit()"
+            (keyup.enter)="clearEdit()"
+            class="modal__dialog__content__form__button"
+            type="button"
+          >
+            Anuluj</button
+          >}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+}

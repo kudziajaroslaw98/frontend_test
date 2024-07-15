@@ -13,4 +13,7 @@ export class FooterComponent {
 
   @Output()
   public showCredentials = new EventEmitter<void>();
+
+  @Output()
+  public openModal = new EventEmitter<void>();
 }

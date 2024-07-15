@@ -18,19 +18,22 @@ body {
   flex-direction: column;
   color: #fff;
   font-family: "Open Sans", sans-serif;
+  position: relative;
   background-color: $bgContent;
 }
 
 :root {
   @keyframes slideIn {
     0% {
-      bottom: -1rem;
+      transform: scaleY(0.5);
+      bottom: -3rem;
       z-index: -1;
     }
     99% {
       z-index: -1;
     }
     100% {
+      transform: scaleY(1);
       bottom: 5.875rem;
       z-index: 2;
     }
