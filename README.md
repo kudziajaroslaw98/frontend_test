@@ -29,7 +29,7 @@ W katalogu znajdziesz projekt graficzny. Prosimy Ci� o jego poci�cie oraz na
 ✅ Nie u�ywa� bootstrapa/tailwinda ani innych podobnych framework�w.
 ✅ Zastosowa� SCSS.
 
-- Poni�ej 960px wed�ug uznania dokona� zmian w projekcie by jak najlepiej przedstawi� stron� (najlepiej wykorzysta� przyk�ad projektu mobilnego).
+✅ Poni�ej 960px wed�ug uznania dokona� zmian w projekcie by jak najlepiej przedstawi� stron� (najlepiej wykorzysta� przyk�ad projektu mobilnego).
 
 ### DODATKOWE PLUSY
 
@@ -50,7 +50,7 @@ W katalogu znajdziesz projekt graficzny. Prosimy Ci� o jego poci�cie oraz na
 
 ### ZADANIE NA 6 :)
 
-- Wykorzysta� localStorage do za�adowania tre�ci z pliku i ich p�niejszego przechowywania oraz napisa� dodatkow� funkcjonalno�� pozwalaj�c� na zarz�dzanie nimi (dodawanie/edycja/usuwanie).
+✅ Wykorzysta� localStorage do za�adowania tre�ci z pliku i ich p�niejszego przechowywania oraz napisa� dodatkow� funkcjonalno�� pozwalaj�c� na zarz�dzanie nimi (dodawanie/edycja/usuwanie).
 
 ## UWAGI
 
