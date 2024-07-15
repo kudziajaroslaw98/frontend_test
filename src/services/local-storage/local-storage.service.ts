@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 import { Article } from '../../app/app.component';
 
 @Injectable({
@@ -16,13 +17,16 @@ export class LocalStorageService {
 
   public add(record: Article): void {
     const records = this.getAll();
-    records.push(record);
+    const newRecord = { ...record, id: uuidv4() };
+
+    records.push(newRecord);
     this.save(records);
   }
 
   public update(id: string, updatedRecord: Article): void {
     const records = this.getAll();
     const index = records.findIndex((record) => record.id === id);
+
     if (index !== -1) {
       records[index] = updatedRecord;
       this.save(records);
@@ -34,6 +38,7 @@ export class LocalStorageService {
   public delete(id: string): void {
     const records = this.getAll();
     const index = records.findIndex((record) => record.id === id);
+
     if (index !== -1) {
       records.splice(index, 1);
       this.save(records);

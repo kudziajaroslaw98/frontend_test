@@ -43,7 +43,11 @@ export class AppComponent implements OnInit {
   constructor(public localStorageService: LocalStorageService) {}
 
   public ngOnInit() {
-    this.localStorageService.initialize(loadedArticles.data as Article[]);
+    if (this.localStorageService.getAll().length === 0) {
+      this.localStorageService.initialize(loadedArticles.data as Article[]);
+    } else {
+      this.loadedArticles = this.localStorageService.getAll();
+    }
   }
 
   public initialArticle: Article = {
