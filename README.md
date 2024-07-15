@@ -10,7 +10,7 @@ W katalogu znajdziesz projekt graficzny. Prosimy Ci� o jego poci�cie oraz na
 
 ### CEL
 
-- Poci�ta strona ma wype�nia� ca�e okno przegl�darki (nie zamyka� contentu w kontenerze o sta�ej szeroko�ci). Przy reponsywno�ci mo�esz zastosowa� dowolne breakpointy, samemu uznaj jak b�dzie najlepiej.
+✅ Poci�ta strona ma wype�nia� ca�e okno przegl�darki (nie zamyka� contentu w kontenerze o sta�ej szeroko�ci). Przy reponsywno�ci mo�esz zastosowa� dowolne breakpointy, samemu uznaj jak b�dzie najlepiej.
 
 ✅ Header powinien by� na sta�e przyklejony do topu, Logo HTML5 w headerze powinno linkowa� do '/' .
 
